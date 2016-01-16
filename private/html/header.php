@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TJ Right Direction</title>
     <link rel="stylesheet" href="css/tjrightdirection.css">
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 <body>
     <div id="container">

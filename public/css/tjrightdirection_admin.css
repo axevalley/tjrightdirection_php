@@ -54,4 +54,19 @@ a.nav {
 
 td {
     vertical-align: top;
+    text-align: left;
+}
+
+textarea {
+    background: white;
+}
+
+#update_text_table td.text_editor {
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+
+#update_text_table td {
+    padding: 1em;
 }
