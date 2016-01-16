@@ -6,45 +6,21 @@ $database = new tjrightdirection\Database();
 $pageText = $database->getPageText('mainpage');
 ?>
 <div>
-    <form method="post" id="update_text_form" action="" id="update_text">
+    <form method="post" id="update_text_form">
         <table id="update_text_table">
             <tr>
-                <td><label for="update_mainpage_text">Main Page Text</label></td>
-                <td class="text_editor"><textarea name="update_mainpage_text" id="update_mainpage_text" cols="80" rows="3"><?php echo $pageText['body']; ?></textarea></td>
+                <td class="label"><label for="update_mainpage_text">Main Page Text</label></td>
+                <td class="text_editor"><textarea name="edit_mainpage_body" id="edit_mainpage_body" cols="80" rows="3"><?php echo $pageText['body']; ?></textarea></td>
+                <td class="save_button"><input value="Save" type="button" id="save_mainpage_body"></td>
             </tr>
             <tr>
-                <td><input value="Save" type="submit"></td>
+                <td class="label"><lable for="">Text</lable></td>
+                <td class="text_input"><input type="text"></td>
+                <td class="save_button"><input value="Save" type="button"></td>
             </tr>
         </table>
     </form>
 </div>
-<script>
-    mainpageText = new nicEditor(
-        {
-            iconsPath: '/scripts/nicEdit/nicEditorIcons.gif',
-            buttonList: ['bold', 'italic', 'underline', 'left', 'center', 'right', 'ol', 'ul', 'indent', 'outdent']
-        }
-    ).panelInstance('update_mainpage_text');
-
-    $('#update_text_form').submit(function(e) {
-        e.preventDefault();
-        var mainpage_editor = new nicEditors.findEditor('update_mainpage_text');
-        var mainpage_html = mainpage_editor.getContent();
-        console.log(mainpage_html);
-        var data = new FormData();
-        data.append('mainpage_text', mainpage_html);
-        $.ajax({
-            url: 'insert_mainpage.php',
-            data: data,
-            type: 'POST',
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                console.log(data);
-            }
-        });
-    });
-
-</script>
+<script src="/scripts/admin_text_editor.js"></script>
 <?php
 require_once($PRIVATE . 'html/admin/footer.php');

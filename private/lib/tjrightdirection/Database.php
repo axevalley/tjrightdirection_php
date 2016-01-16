@@ -23,6 +23,13 @@ class Database extends \LSPHP\DatabaseTable
         return $pageText;
     }
 
+    public function getText($page, $name)
+    {
+        $query = "SELECT `html` FROM {$this->table} WHERE `page` = '{$page}' and `name` = '{$name}';";
+        $result = $this->selectQuery($query);
+        return urldecode($result[0]['html']);
+    }
+
     public function updateText($page, $name, $text)
     {
         $query = "UPDATE {$this->table} SET `html` = '" . urlencode($text) . "' WHERE `page` = '{$page}' AND `name` = '{$name}';";

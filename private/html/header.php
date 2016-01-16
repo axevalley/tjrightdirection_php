@@ -16,6 +16,7 @@
                 <li class="phone">Tell: <a class="phone" href="tel:+441934239599">01934239599</a></li>
                 <li class="phone">Mob: <a class="phone" href="tel:+447891679855">07891679855</a></li>
             </ul>
+            <br />
 <?php include('nav.php'); ?>
         </div>
         <div id="body">

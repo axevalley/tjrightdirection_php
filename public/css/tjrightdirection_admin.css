@@ -3,7 +3,6 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #bbb;
 }
 
 #container {
@@ -52,9 +51,16 @@ a.nav {
     color: white;
 }
 
+table {
+    background: #eee;
+    text-align: left;
+    margin: 0 auto;
+}
+
 td {
     vertical-align: top;
     text-align: left;
+    padding-top: 1em;
 }
 
 textarea {
@@ -67,6 +73,6 @@ textarea {
     margin: 0;
 }
 
-#update_text_table td {
+td.label, td.save_button {
     padding: 1em;
 }
