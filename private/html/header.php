@@ -17,7 +17,7 @@ $phoneNumbers = $database->getPhoneNumbers();
     <div id="container">
         <div id="header">
             <h1>Right Direction</h1>
-            <h2>Building &amp; Landscape Specialists</h2>
+            <h3>Building &amp; Landscape Specialists</h3>
             <ul class="phone">
                 <?php
                 foreach ($phoneNumbers as $number) {

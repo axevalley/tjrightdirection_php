@@ -3,6 +3,11 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: #B2D963;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1E211F;
 }
 
 #container {
@@ -34,6 +39,9 @@ ul.nav, ul.phone {
 
 li.nav {
     display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 2em
 }
 
 li.phone {
@@ -43,12 +51,22 @@ li.phone {
 }
 
 a.nav {
-    display: block;
-    background: blue;
-    padding: 0.25em 0.5em 0.25em 0.5em;
+    display: inline;
+    background: #889FCF;
     margin: 0.25em;
+    padding: 0.5em;
     border-radius: 1em;
-    color: white;
+    color: #4A2B25;
+    font-size: 1.25em;
+    height: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+a.nav:hover {
+    color: #291613;
+    text-decoration: underline;
 }
 
 table {

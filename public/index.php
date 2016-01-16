@@ -4,10 +4,8 @@ require_once($PRIVATE . 'html/header.php');
 $database = new tjrightdirection\Database();
 $pageText = $database->getPageText('mainpage');
 ?>
-<div id="mainpage_backgound">
-    <div id="mainpage_text">
-        <?php echo $pageText['body']; ?>
-    </div>
+<div id="mainpage_text">
+    <?php echo $pageText['body']; ?>
 </div>
 <?php
 require_once($PRIVATE . 'html/footer.php');

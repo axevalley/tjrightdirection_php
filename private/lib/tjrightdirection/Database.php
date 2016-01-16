@@ -31,7 +31,7 @@ class Database extends \LSPHP\DatabaseConnection
 
     public function updateText($page, $name, $text)
     {
-        $query = "UPDATE {$this->table} SET `html` = '" . urlencode($text) . "' WHERE `page` = '{$page}' AND `name` = '{$name}';";
+        $query = "UPDATE html SET `html` = '" . urlencode($text) . "' WHERE `page` = '{$page}' AND `name` = '{$name}';";
         $this->insertQuery($query);
     }
 
