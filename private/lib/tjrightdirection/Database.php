@@ -1,7 +1,7 @@
 <?php
 namespace tjrightdirection;
 
-class Database extends \LSPHP\DatabaseTable
+class Database extends \LSPHP\DatabaseConnection
 {
     public function __construct()
     {
@@ -9,12 +9,11 @@ class Database extends \LSPHP\DatabaseTable
         $this->database = 'tjrightdirection';
         $this->user = 'tjrightdirection';
         $this->passwd = 'emmatoff';
-        $this->table = 'html';
     }
 
     public function getPageText($page)
     {
-        $query = "SELECT * FROM " . $this->table . " WHERE `page` = '" . $page . "';";
+        $query = "SELECT * FROM html WHERE `page` = '" . $page . "';";
         $results = $this->selectQuery($query);
         $pageText = array();
         foreach ($results as $result) {
@@ -25,7 +24,7 @@ class Database extends \LSPHP\DatabaseTable
 
     public function getText($page, $name)
     {
-        $query = "SELECT `html` FROM {$this->table} WHERE `page` = '{$page}' and `name` = '{$name}';";
+        $query = "SELECT `html` FROM html WHERE `page` = '{$page}' and `name` = '{$name}';";
         $result = $this->selectQuery($query);
         return urldecode($result[0]['html']);
     }
@@ -34,5 +33,12 @@ class Database extends \LSPHP\DatabaseTable
     {
         $query = "UPDATE {$this->table} SET `html` = '" . urlencode($text) . "' WHERE `page` = '{$page}' AND `name` = '{$name}';";
         $this->insertQuery($query);
+    }
+
+    public function getPhoneNumbers()
+    {
+        $query = "SELECT `name`, `number` FROM contact_phone ORDER BY `sort`;";
+        $results = $this->selectQuery($query);
+        return $results;
     }
 }

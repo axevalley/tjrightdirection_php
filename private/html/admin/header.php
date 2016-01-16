@@ -11,7 +11,7 @@
 <body>
     <div id="container">
         <div id="header">
-            <h1>TJ Right Direction Admin</h1>
+            <h1>Right Direction Admin</h1>
 <?php include('nav.php'); ?>
         </div>
         <div id="body">
