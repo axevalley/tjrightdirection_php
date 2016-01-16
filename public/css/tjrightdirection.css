@@ -33,14 +33,16 @@ h1, h2, h3, h4, h5, h6 {
 
 ul.nav, ul.phone {
     list-style-type: none;
-    margin: 0;
+    margin: 1em;
     padding: 0;
+
 }
 
 li.nav {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+    margin-top: 1.25em
 }
 
 li.phone {
