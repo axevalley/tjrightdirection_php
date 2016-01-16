@@ -1,0 +1,57 @@
+html, body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #bbb;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    padding: 10px;
+}
+
+#body {
+    padding: 10px;
+    padding-bottom: 60px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+ul.nav, ul.phone {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.nav {
+    display: inline-block;
+}
+
+li.phone {
+    display: inline-block;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    margin: 0.25em;
+}
+
+a.nav {
+    display: block;
+    background: blue;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    margin: 0.25em;
+    border-radius: 1em;
+    color: white;
+}
+
+td {
+    vertical-align: top;
+}
