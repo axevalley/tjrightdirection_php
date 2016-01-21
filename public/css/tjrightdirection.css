@@ -1,6 +1,6 @@
 html, body {
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     height: 100%;
     background-color: #B2D963;
@@ -16,7 +16,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header {
-    padding: 10px;
+    margin: 0 auto;
+    /*padding: 10px;*/
+    max-width: 800px;
 }
 
 #body {
@@ -33,18 +35,42 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 2em;
 }
 
+.sitename {
+    display: inline-block;
+    float: left;
+    text-align: left;
+}
+
+.contact_numbers {
+    margin: 0;
+    padding: 0;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.contact_numbers a {
+    color: #1E211F;
+    text-decoration: none;
+}
+
 ul.nav, ul.phone {
     list-style-type: none;
-    margin: 1em;
+    margin: 0.25em;
     padding: 0;
-
 }
 
 li.nav {
     display: inline-block;
-    text-align: center;
+    background: #889FCF;
+    margin-left: 0.25em;
+    margin-bottom: 0.25em;
+    padding: 0.5em;
+    border-radius: 1em;
+    font-size: 1.25em;
+    height: 30px;
+    font-weight: bold;
+    text-decoration: none;
     vertical-align: middle;
-    margin-top: 2em
 }
 
 li.phone {
@@ -54,22 +80,12 @@ li.phone {
 }
 
 a.nav {
-    display: inline;
-    background: #889FCF;
-    margin: 0.25em;
-    padding: 0.5em;
-    border-radius: 1em;
-    color: #4A2B25;
-    font-size: 1.25em;
-    height: 30px;
-    font-weight: bold;
     text-decoration: none;
-    vertical-align: middle;
+    color: #4A2B25;
 }
 
 a.nav:hover {
     color: #291613;
-    text-decoration: underline;
 }
 
 a.nav img {

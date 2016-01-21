@@ -16,15 +16,20 @@ $phoneNumbers = $database->getPhoneNumbers();
 <body>
     <div id="container">
         <div id="header">
-            <h1>Right Direction</h1>
-            <h3>Building &amp; Landscape Specialists</h3>
-            <ul class="phone">
-                <?php
-                foreach ($phoneNumbers as $number) {
-                    echo "<li class=\"phone\">{$number['name']}: <a class=\"phone\" href=\"tel:{$number['number']}\">{$number['number']}</a></li>\n";
-                }
-                ?>
-            </ul>
+            <div class="sitename">
+                <h1>Right Direction</h1>
+                <h3>Building &amp; Landscape Specialists</h3>
+            </div>
+            <div class="contact_numbers">
+                <ul class="phone">
+                    <?php
+                    foreach ($phoneNumbers as $number) {
+                        echo "<li class=\"phone\">{$number['name']}: <a class=\"phone\" href=\"tel:{$number['number']}\">{$number['number']}</a></li>\n";
+                    }
+                    ?>
+                </ul>
+            </div>
+
 <?php include('nav.php'); ?>
         </div>
         <div id="body">

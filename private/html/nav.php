@@ -1,6 +1,6 @@
             <ul class="nav">
-                <li class="nav"><a href="index.php" class="nav"><img src="/images/home.png" alt="Home" height="30"></a></li>
-                <li class="nav"><a class="nav" href="gallery.php">Gallery</a></li>
-                <li class="nav"><a href="recommendations.php" class="nav">Recommendations</a></li>
-                <li class="nav"><a href="contact.php" class="nav">Contact Us</a></li>
+                <a href="index.php" class="nav"><li class="nav"><img src="/images/home.png" alt="Home" height="30"></li></a>
+                <a class="nav" href="gallery.php"><li class="nav">Gallery</li></a>
+                <a href="recommendations.php" class="nav"><li class="nav">Recommendations</li></a>
+                <a href="contact.php" class="nav"><li class="nav">Contact Us</li></a>
             </ul>
