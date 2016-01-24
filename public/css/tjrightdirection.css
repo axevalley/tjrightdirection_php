@@ -136,7 +136,31 @@ a.nav img {
     height: 100;
     background-color: #000;
     z-index: 10000;
+    padding: 0;
+    background-color: #333333;
+}
+
+.overlay_pannel {
+    position: static;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
     background-repeat: no-repeat;
     background-position: center;
-    background-size:contain;
+    background-size: 95%;
+    overflow-x: hidden;
+}
+
+#overlay_left {
+    background-image: url('/images/pointer_left.png');
+    background-size: 80% auto;
+}
+
+#overlay_right {
+    background-image: url('/images/pointer_right.png');
+    background-size: 80% auto;
+}
+
+#close_overlay {
+    padding: 1em;
 }

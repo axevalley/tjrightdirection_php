@@ -5,14 +5,21 @@ $database = new tjrightdirection\Database();
 
 $images = $database->getAllImages();
 
-echo "\t<div id=\"gallery\" class=\"gallery\">\n";
-echo "<br />\n";
+$imageFilnames = array();
 foreach ($images as $image) {
-    $filepath = 'images/gallery/thumbs/' . $image['filename'];
-    echo "\t\t<div class=\"gallery_image\">\n";
-    echo "\t\t\t<img src=\"{$filepath}\" class=\"gallery_image\" />\n";
-    echo "\t\t</div>\n";
+    $imageFilenames[] = $image['filename'];
 }
-echo "\t</div>\n";
-echo "\t<script src=\"/scripts/gallery.js\"></script>\n";
+?>
+
+<div id="gallery" class="gallery">
+    <br />
+</div>
+<script>
+    thumbPath = "/images/gallery/thumbs/";
+    fullPath = "/images/gallery/images/";
+    imageList = <?php echo json_encode($imageFilenames); ?>;
+</script>
+<script src="/scripts/gallery.js"></script>
+
+<?php
 require_once($PRIVATE . 'html/footer.php');
