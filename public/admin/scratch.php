@@ -3,8 +3,28 @@ require_once(dirname($_SERVER['DOCUMENT_ROOT']) . '/private/config.php');
 require_once($PRIVATE . 'html/admin/header.php');
 $database = new tjrightdirection\Database();
 
-$query = "SELECT gallery_images.id FROM gallery_images INNER JOIN gallery_jobs ON gallery_images.gallery_jobs_id=gallery_jobs.id WHERE gallery_jobs.id = 0 ORDER BY gallery_images.sort_order;";
+$database = new tjrightdirection\Database();
 
-$result = $database->getNextJobNumber();
+$images = $database->getAllImages();
 
-print_r($result);
+$jobs = array();
+
+foreach ($images as $image) {
+    if (!(array_key_exists($image['job_name'], $jobs))) {
+        $jobs[$image['job_name']] = array();
+    }
+    $jobs[$image['job_name']][] = array('filename'=>$image['filename'], 'id'=>$image['id']);
+}
+
+foreach ($jobs as $job => $jobImages) {
+    $imageNumber = 1;
+    foreach ($jobImages as $image => $imageDetails) {
+        echo "<div style=\"border: solid black 1px; display: inline-block; width:100px; margin: 5px;\">";
+        echo "<p>{$job}</p>";
+        echo "<p>Image Number: {$imageNumber}</p>";
+        echo "<img src=\"/images/gallery/thumbs/{$imageDetails['filename']}\" width=\"80\"/>";
+        echo "<p>ID: {$imageDetails['id']}</p>";
+        echo "</div>";
+        $imageNumber ++;
+    }
+}

@@ -1,4 +1,6 @@
 <?php
+ini_set('post_max_size', '200M');
+ini_set('upload_max_filesize', '200M');
 require_once(dirname($_SERVER['DOCUMENT_ROOT']) . '/private/config.php');
 require_once($PRIVATE . 'html/admin/header.php');
 $database = new tjrightdirection\Database();
@@ -17,7 +19,8 @@ if (isset($_FILES['image'])) {
     $image = $_FILES['image']['tmp_name'];
     $filename = uniqid() . '.jpg';
     $filepath = $GALLERY_FULL_PATH . $filename;
-    $fullResize = new tjrightdirection\Gallery\Resize($_FILES['image']['tmp_name']);
+    move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
+    $fullResize = new tjrightdirection\Gallery\Resize($filepath);
     $fullResize->resizeImage(1000, 1000, 'auto');
     $fullResize->saveImage($filepath, 100);
     $thumbResize = new tjrightdirection\Gallery\Resize($filepath);
