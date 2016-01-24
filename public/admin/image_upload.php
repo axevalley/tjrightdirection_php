@@ -17,11 +17,13 @@ if (isset($_FILES['image'])) {
     $image = $_FILES['image']['tmp_name'];
     $filename = uniqid() . '.jpg';
     $filepath = $GALLERY_FULL_PATH . $filename;
-    move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
-    $resizeObj = new tjrightdirection\Gallery\Resize($filepath);
-    $resizeObj -> resizeImage(200, 200, 'auto');
+    $fullResize = new tjrightdirection\Gallery\Resize($_FILES['image']['tmp_name']);
+    $fullResize->resizeImage(1000, 1000, 'auto');
+    $fullResize->saveImage($filepath, 100);
+    $thumbResize = new tjrightdirection\Gallery\Resize($filepath);
+    $thumbResize -> resizeImage(200, 200, 'auto');
     $thumbPath = $GALLERY_THUMB_PATH . $filename;
-    $resizeObj->saveImage($thumbPath, 100);
+    $thumbResize->saveImage($thumbPath, 100);
     $database->addImageToGallery($filename, $jobID, $sortNumber);
 }
 ?>
