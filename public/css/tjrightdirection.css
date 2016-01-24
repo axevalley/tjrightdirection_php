@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 #body {
     padding: 10px;
     padding-bottom: 20px;
+    text-align: left;
 }
 
 #footer {
@@ -104,4 +105,25 @@ a.nav img {
     background-position: center;
     padding: 2em;
     border-radius: 20px;
+}
+
+.gallery {
+    text-align: left;
+    background-color: #333333;
+	padding: 1em;
+	color: #eeeeee;
+	font-family: bretan;
+    border-radius: 20px;
+}
+
+.gallery_image a {
+    text-decoration: none;
+}
+
+.gallery_image {
+    margin: 0.25em;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2em;
+    vertical-align: middle;
 }

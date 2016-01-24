@@ -23,8 +23,9 @@ $phoneNumbers = $database->getPhoneNumbers();
             <div class="contact_numbers">
                 <ul class="phone">
                     <?php
+                    echo "\n";
                     foreach ($phoneNumbers as $number) {
-                        echo "<li class=\"phone\">{$number['name']}: <a class=\"phone\" href=\"tel:{$number['number']}\">{$number['number']}</a></li>\n";
+                        echo "\t\t\t\t\t<li class=\"phone\">{$number['name']}: <a class=\"phone\" href=\"tel:{$number['number']}\">{$number['number']}</a></li>\n";
                     }
                     ?>
                 </ul>
