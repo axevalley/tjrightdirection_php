@@ -6,6 +6,8 @@ require_once($PRIVATE . 'html/admin/header.php');
 $database = new tjrightdirection\Database();
 $jobNames = $database->getJobNames();
 
+print_r($jobNames);
+
 if (isset($_FILES['image'])) {
     $jobName = $_POST['job_name'];
     if (array_key_exists($jobName, $jobNames)) {
@@ -37,9 +39,21 @@ if (isset($_FILES['image'])) {
             <td><input type="file" accept="image/jpeg" name="image" id="image"></td>
         </tr>
         <tr>
+            <td><label for="job_name_new">Job Name</label></td>
+            <td><input type="text" name="job_name"></td>
+        </tr>
+        <tr>
+            <td><label for="job_name_old">Existing Job</label></td>
             <td>
-                <td><label for="job_name">Job Name</label></td>
-                <td><input type="text" name="job_name"></td>
+                <select name="job_name_old" id="">
+                    <option label=" "></option>
+                    <?php
+                    foreach($jobNames as $job => $jobID) {
+                        $jobName = htmlspecialchars($job);
+                        echo "<option value=\"{$jobName}\">{$jobName}</option>\n";
+                    }
+                    ?>
+                </select>
             </td>
         </tr>
         <tr>
