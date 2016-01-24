@@ -10,9 +10,9 @@ echo "<br />\n";
 foreach ($images as $image) {
     $filepath = 'images/gallery/thumbs/' . $image['filename'];
     echo "\t\t<div class=\"gallery_image\">\n";
-    echo "\t\t\t<a href=\"\"><img src=\"{$filepath}\" class=\"gallery_image\" /></a>\n";
+    echo "\t\t\t<img src=\"{$filepath}\" class=\"gallery_image\" />\n";
     echo "\t\t</div>\n";
 }
 echo "\t</div>\n";
-
+echo "\t<script src=\"/scripts/gallery.js\"></script>\n";
 require_once($PRIVATE . 'html/footer.php');
