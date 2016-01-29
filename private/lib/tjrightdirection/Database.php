@@ -105,4 +105,10 @@ class Database extends \LSPHP\DatabaseConnection
         $result = $this->selectQuery($query);
         return $result;
     }
+
+    public function getRecomendations()
+    {
+        $query = "SELECT * FROM recommendations ORDER BY sort_order;";
+        return $this->selectQuery($query);
+    }
 }
