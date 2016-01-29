@@ -10,6 +10,30 @@ h1, h2, h3, h4, h5, h6 {
     color: #1E211F;
 }
 
+h1 {
+    font-size: 3em;
+}
+
+h1, h3 {
+   padding: 0.25em;
+   margin: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+#sitename_phone {
+    margin-top: 0.25em;
+}
+
+.sitename {
+    padding: 0.25em;
+    background: #889FCF;
+    border-radius: 20px;
+    height: 100%;
+}
+
 #container {
     min-height: 100%;
     position: relative;
@@ -38,8 +62,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .sitename {
     display: inline-block;
-    float: left;
+    /*float: left;*/
     text-align: left;
+    /*overflow: hidden;*/
+    width: 59%;
+    height: 100%;
+    margin-top: 0.1em;
 }
 
 .contact_numbers {
@@ -47,6 +75,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-size: 1.25em;
     font-weight: bold;
+    height: 100%;
+    display: inline-block;
+    width: 39%;
+    height: 100%;
 }
 
 .contact_numbers a {
@@ -54,10 +86,20 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
+ul.phone {
+    vertical-align: center;
+    margin: 0 auto;
+}
+
 ul.nav, ul.phone {
     list-style-type: none;
     margin: 0.25em;
     padding: 0;
+}
+
+ul.nav {
+    display: inline;
+    margin-top:1em;
 }
 
 li.nav {
@@ -68,7 +110,7 @@ li.nav {
     padding: 0.5em;
     border-radius: 1em;
     font-size: 1.25em;
-    height: 30px;
+    /*height: 30px;*/
     font-weight: bold;
     text-decoration: none;
     vertical-align: middle;
@@ -163,4 +205,34 @@ a.nav img {
 
 #close_overlay {
     padding: 1em;
+}
+
+.rec_quote {
+    max-width: 800px;
+    background: white;
+    border: solid 5px #889FCF;
+    padding: 1.5em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    border-radius: 20px;
+    font-style: italic;
+}
+
+.rec_name {
+    text-align: right;
+    margin-right: 20%;
+    font-style: normal;
+}
+
+#testimonial_header {
+    margin: 0 auto;
+    background: #889FCF;
+    color: white;
+    font-size: 1.25em;
+    font-weight: bold;
+    max-width: 800px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 1em;
 }
