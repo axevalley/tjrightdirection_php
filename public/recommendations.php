@@ -5,7 +5,7 @@ $database = new tjrightdirection\Database();
 $recomendations = $database->getRecomendations();
 ?>
 
-<div id="testimonial_header">
+<div class="page_header">
     <p>Contact details for referees available upon request.</p>
 </div>
 

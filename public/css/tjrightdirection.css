@@ -207,7 +207,7 @@ a.nav img {
     padding: 1em;
 }
 
-.rec_quote {
+.rec_quote, #contact_form {
     max-width: 800px;
     background: white;
     border: solid 5px #889FCF;
@@ -215,7 +215,14 @@ a.nav img {
     margin: 0 auto;
     margin-bottom: 2em;
     border-radius: 20px;
-    font-style: italic;
+}
+
+.rec_quote {
+  font-style: italic;
+}
+
+#contact_form {
+   vertical-align: middle;
 }
 
 .rec_name {
@@ -224,7 +231,7 @@ a.nav img {
     font-style: normal;
 }
 
-#testimonial_header {
+.page_header {
     margin: 0 auto;
     background: #889FCF;
     color: white;
@@ -235,4 +242,12 @@ a.nav img {
     overflow: hidden;
     border-radius: 20px;
     margin-bottom: 1em;
+}
+
+#contact_form textarea {
+    vertical-align: top;
+}
+
+#contact_form input, #contact_form textarea, #contact_form label {
+    margin: 0.25em;
 }
