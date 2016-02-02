@@ -5,7 +5,7 @@ class Email extends \LSPHP\Email
 {
     public function __construct()
     {
-        $this->host = "http://mail.tjrightdirection.co.uk";
+        $this->host = "sub4.mail.dreamhost.com";
         $this->username = "webform@tjrightdirection.co.uk";
         $this->password = "S6L7!Z4W";
         $this->port = "587";

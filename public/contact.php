@@ -10,7 +10,9 @@ if (isset($_POST['name']) && isset($_POST['message']) && (isset($_POST['phone'])
     echo "<p>Message:<textarea>{$_POST['message']}</textarea></p>\n";
     $message = "\n\neMail: {$_POST['email']}\n\nPhone: {$_POST['phone']}\n\n" . $_POST['message'];
     echo "<textarea>{$message}</textarea>\n";
-    if ($email->sendContactFormMessage($_POST['name'], $message) == 0) {
+    $mailStatus = $email->sendContactFormMessage($_POST['name'], $message);
+    echo "<p>{$mailStatus}</p>\n";
+    if ($mailStatus == 0) {
         echo "<h3>Message Sent Successfully</h3>\n";
     } else {
         echo "<h3 class=\"error\">Message Failed!</h3>\n";
