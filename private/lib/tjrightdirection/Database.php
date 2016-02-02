@@ -55,11 +55,10 @@ class Database extends \LSPHP\DatabaseConnection
 
     public function getNextImageNumberForJob($jobID)
     {
-        $query = "SELECT gallery_images.id FROM gallery_images INNER JOIN gallery_jobs ON gallery_images.gallery_jobs_id=gallery_jobs.id WHERE gallery_jobs.id = {$jobID} ORDER BY gallery_images.sort_order DESC LIMIT 1;";
+        $query = "SELECT gallery_images.sort_order FROM gallery_images INNER JOIN gallery_jobs ON gallery_images.gallery_jobs_id=gallery_jobs.id WHERE gallery_jobs.id = {$jobID} ORDER BY gallery_images.sort_order DESC LIMIT 1;";
         $result = $this->selectQuery($query);
-        print_r($result);
         if (isset($result[0])) {
-            $sortNumber = $result[0]['id'] + 1;
+            $sortNumber = $result[0]['sort_order'] + 1;
         } else {
             $sortNumber = 0;
         }
@@ -93,9 +92,9 @@ class Database extends \LSPHP\DatabaseConnection
         return $this->getGalleryJobIDByName($jobName);
     }
 
-    public function addImageToGallery($filename, $jobID, $sortNumber)
+    public function addImageToGallery($filename, $jobID, $sortNumber, $width, $height)
     {
-        $query = "INSERT INTO gallery_images (`filename`, `gallery_jobs_id`, `sort_order`) VALUES ('{$filename}', {$jobID}, {$sortNumber});";
+        $query = "INSERT INTO gallery_images (`filename`, `gallery_jobs_id`, `sort_order`, `width`, `height`) VALUES ('{$filename}', {$jobID}, {$sortNumber}, {$width}, {$height});";
         $this->insertQuery($query);
     }
 

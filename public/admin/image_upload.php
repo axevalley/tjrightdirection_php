@@ -23,11 +23,12 @@ if (isset($_FILES['image'])) {
     $fullResize = new tjrightdirection\Gallery\Resize($filepath);
     $fullResize->resizeImage(800, 800, 'auto');
     $fullResize->saveImage($filepath, 80);
+    list($width, $height) = getimagesize($filepath);
     $thumbResize = new tjrightdirection\Gallery\Resize($filepath);
     $thumbResize -> resizeImage(200, 200, 'auto');
     $thumbPath = $GALLERY_THUMB_PATH . $filename;
     $thumbResize->saveImage($thumbPath, 60);
-    $database->addImageToGallery($filename, $jobID, $sortNumber);
+    $database->addImageToGallery($filename, $jobID, $sortNumber, $width, $height);
 }
 ?>
 <form enctype="multipart/form-data" id='image_upload_form' method="post" >
