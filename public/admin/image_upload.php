@@ -28,7 +28,8 @@ if (isset($_FILES['image'])) {
     $thumbResize -> resizeImage(200, 200, 'auto');
     $thumbPath = $GALLERY_THUMB_PATH . $filename;
     $thumbResize->saveImage($thumbPath, 60);
-    $database->addImageToGallery($filename, $jobID, $sortNumber, $width, $height);
+    list($thumbWidth, $thumbHeight) = getimagesize($thumbPath);
+    $database->addImageToGallery($filename, $jobID, $sortNumber, $width, $height, $thumbWidth, $thumbHeight);
 }
 ?>
 <form enctype="multipart/form-data" id='image_upload_form' method="post" >

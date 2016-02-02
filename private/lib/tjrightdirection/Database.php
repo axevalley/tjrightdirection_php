@@ -92,9 +92,9 @@ class Database extends \LSPHP\DatabaseConnection
         return $this->getGalleryJobIDByName($jobName);
     }
 
-    public function addImageToGallery($filename, $jobID, $sortNumber, $width, $height)
+    public function addImageToGallery($filename, $jobID, $sortNumber, $width, $height, $thumbWidth, $thumbHeight)
     {
-        $query = "INSERT INTO gallery_images (`filename`, `gallery_jobs_id`, `sort_order`, `width`, `height`) VALUES ('{$filename}', {$jobID}, {$sortNumber}, {$width}, {$height});";
+        $query = "INSERT INTO gallery_images (`filename`, `gallery_jobs_id`, `sort_order`, `width`, `height`, `thumb_width`, `thumb_height`) VALUES ('{$filename}', {$jobID}, {$sortNumber}, {$width}, {$height}, {$thumbWidth}, {$thumbHeight});";
         $this->insertQuery($query);
     }
 
