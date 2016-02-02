@@ -4,18 +4,12 @@ require_once($PRIVATE . 'html/header.php');
 $email = new tjrightdirection\Email();
 
 if (isset($_POST['name']) && isset($_POST['message']) && (isset($_POST['phone']) || isset($_POST['email']))) {
-    echo "<p>Name: {$_POST['name']}</p>\n";
-    echo "<p>eMail: {$_POST['email']}</p>\n";
-    echo "<p>Phone: {$_POST['phone']}</p>\n";
-    echo "<p>Message:<textarea>{$_POST['message']}</textarea></p>\n";
-    $message = "\n\neMail: {$_POST['email']}\n\nPhone: {$_POST['phone']}\n\n" . $_POST['message'];
-    echo "<textarea>{$message}</textarea>\n";
+    $message = "eMail: {$_POST['email']}\n\nPhone: {$_POST['phone']}\n\n{$_POST['message']}";
     $mailStatus = $email->sendContactFormMessage($_POST['name'], $message);
-    echo "<p>{$mailStatus}</p>\n";
-    if ($mailStatus == 0) {
-        echo "<h3>Message Sent Successfully</h3>\n";
+    if ($mailStatus === 0) {
+        echo "<p class=\"page_header\">Message Sent Successfully</p>\n";
     } else {
-        echo "<h3 class=\"error\">Message Failed!</h3>\n";
+        echo "<p class=\"page_header\">Message Failed!</p>\n";
     }
 } else {
     ?>
