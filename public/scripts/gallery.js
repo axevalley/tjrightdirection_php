@@ -1,33 +1,31 @@
 imageNumber = 0;
 $(document).ready(function() {
+    if (($(window).width() > 501) || ($(window).height() > 501)) {
+        desktopSetup();
+    } else {
+        mobileSetup();
+    }
+});
+
+function mobileSetup() {
+    getThumbs();
+}
+
+function desktopSetup() {
     var overlay = $('<div id="overlay"><div id="overlay_left" class="overlay_pannel"></div><div id="overlay_center" class="overlay_pannel"></div><div id="overlay_right" class="overlay_pannel"><img src="/images/close.png" id="close_overlay" /></div></div>');
     overlay.appendTo(document.body);
     var wWidth = $(window).width();
     var wHeight = $(window).height();
     $('.overlay_pannel').css('height', '100%');
-    if (wWidth < 501) {
-        overlay.css('left', 0);
-        overlay.css('width', '100%');
-        $('#overlay_left').css('width', '10%');
-        $('#overlay_right').css('width', '10%');
-        $('#overlay_center').css('width', '70%');
-    } else {
-        var overlayWidth = wWidth * 0.2;
-        overlay.css('left', overlayWidth);
-        overlay.css('width', '60%');
-        $('#overlay_center').css('width', '90%');
-        $('#overlay_left').css('width', '5%');
-        $('#overlay_right').css('width', '5%');
-    }
-    if (wHeight < 501) {
-        overlay.css('top', 0);
-        overlay.css('height', '100%');
-    } else {
-        var overlayHeight = wHeight * 0.1;
-        overlay.css('top', overlayHeight);
-        overlay.css('height', '80%');
-    }
-
+    var overlayWidth = wWidth * 0.2;
+    overlay.css('left', overlayWidth);
+    overlay.css('width', '60%');
+    $('#overlay_center').css('width', '90%');
+    $('#overlay_left').css('width', '5%');
+    $('#overlay_right').css('width', '5%');
+    var overlayHeight = wHeight * 0.1;
+    overlay.css('top', overlayHeight);
+    overlay.css('height', '80%');
     overlay.attr('hidden', true);
 
     $('#overlay_right').click(function() {
@@ -43,24 +41,32 @@ $(document).ready(function() {
         overlay.attr('hidden', true);
     });
 
+    getThumbs();
+}
+
+function getThumbs() {
     for (var i = 0; i < imageList.length; i++) {
         var filepath = thumbPath + imageList[i];
-        $('#gallery').append('<div class="gallery_image"><img class="gallery_image" class="gallery_image" src="' + filepath + '" />');
-        var image = $('#gallery img:last');
-        image.click(imageClickGenerator(image));
+        var image = $('.gallery_image').eq(i);
+        image.css('background-size', 'auto');
+        image.css('background-image', 'url("' + filepath + '")');
+        //$('#gallery').append('<div class="gallery_image"><img class="gallery_image" class="gallery_image" src="' + filepath + '" />');
+        image.click(imageClickGenerator(i));
     }
+}
 
-
-});
-
-function imageClickGenerator(image) {
-    return function() {
-        var filepath = $(image).attr('src').split('/');
-        var filename = filepath[filepath.length - 1];
-        imageNumber = imageList.indexOf(filename);
-        setOverlayImage();
-        $('#overlay').attr('hidden', false);
-    };
+function imageClickGenerator(i) {
+    if (($(window).width() > 501) || ($(window).height() > 501)) {
+        return function() {
+            imageNumber = i;
+            setOverlayImage();
+            $('#overlay').attr('hidden', false);
+        };
+    } else {
+        return function() {
+            window.location.href = 'images/gallery/images/' + imageList[i];
+        };
+    }
 }
 
 function nextImage() {

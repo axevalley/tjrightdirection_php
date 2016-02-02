@@ -100,7 +100,7 @@ class Database extends \LSPHP\DatabaseConnection
 
     public function getAllImages()
     {
-        $query = "SELECT gallery_images.id, gallery_images.filename, gallery_jobs.job_name FROM gallery_images INNER JOIN gallery_jobs ON gallery_images.gallery_jobs_id=gallery_jobs.id ORDER BY gallery_jobs.sort_order ASC, gallery_images.sort_order ASC;";
+        $query = "SELECT gallery_images.id, gallery_images.filename, gallery_images.thumb_width, gallery_images.thumb_height, gallery_jobs.job_name FROM gallery_images INNER JOIN gallery_jobs ON gallery_images.gallery_jobs_id=gallery_jobs.id ORDER BY gallery_jobs.sort_order ASC, gallery_images.sort_order ASC;";
         $result = $this->selectQuery($query);
         return $result;
     }

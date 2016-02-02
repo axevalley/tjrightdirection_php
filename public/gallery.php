@@ -13,6 +13,16 @@ foreach ($images as $image) {
 
 <div id="gallery" class="gallery">
     <br />
+    <?php
+    foreach ($images as $image) {
+        $width = $image['thumb_width'];
+        $height = $image['thumb_height'];
+        $style = "style=\"width:{$width}px;height:{$height}px;\"";
+        echo "<div class=\"gallery_image\" {$style}>";
+        //echo "<img class=\"gallery_image\" src=\"images/loading.gif\" height=\"20\" />";
+        echo "</div>";
+    }
+     ?>
 </div>
 <script>
     thumbPath = "/images/gallery/thumbs/";

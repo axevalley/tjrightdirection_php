@@ -160,14 +160,20 @@ a.nav img {
 
 .gallery_image a {
     text-decoration: none;
+    vertical-align: middle;
 }
 
-.gallery_image {
+div.gallery_image {
     margin: 0.25em;
     display: inline-block;
     text-align: center;
     font-size: 1.2em;
     vertical-align: middle;
+    background-color: black;
+    background-image: url("/images/loading.gif");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #overlay {
