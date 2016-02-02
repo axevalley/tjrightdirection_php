@@ -2,4 +2,6 @@
 public/images/gallery/images/*
 public/images/gallery/thumbs/*
 **~
-**scratch.php
+**/scratch.php
+*/scratch.php
+public/admin/scratch.php
