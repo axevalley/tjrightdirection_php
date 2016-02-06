@@ -22,12 +22,12 @@ if (isset($_FILES['image'])) {
     move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
     $fullResize = new tjrightdirection\Gallery\Resize($filepath);
     $fullResize->resizeImage(800, 800, 'auto');
-    $fullResize->saveImage($filepath, 80);
+    $fullResize->saveImage($filepath, 60);
     list($width, $height) = getimagesize($filepath);
     $thumbResize = new tjrightdirection\Gallery\Resize($filepath);
     $thumbResize -> resizeImage(200, 200, 'auto');
     $thumbPath = $GALLERY_THUMB_PATH . $filename;
-    $thumbResize->saveImage($thumbPath, 60);
+    $thumbResize->saveImage($thumbPath, 20);
     list($thumbWidth, $thumbHeight) = getimagesize($thumbPath);
     $database->addImageToGallery($filename, $jobID, $sortNumber, $width, $height, $thumbWidth, $thumbHeight);
 }
