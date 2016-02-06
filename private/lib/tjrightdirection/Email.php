@@ -14,7 +14,7 @@ class Email extends \LSPHP\Email
 
     public function sendContactFormMessage($name, $message)
     {
-        $to = "axevalley@hotmail.co.uk";
+        $to = "info@tjrightdirection.co.uk";
         $reply = "webform@tjrightdirection.co.uk";
         $subject = "Web Form Message From " . $name;
         $body = $message;
